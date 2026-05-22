@@ -2,20 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Egg IoT Dashboard - Progress Review</title>
+    <title>Egg IoT Dashboard - Live Integration</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
-        <h1> Smart Egg Monitor <span class="badge">IoT Live (Mock)</span></h1>
+        <h1>🥚 Smart Egg Monitor <span class="badge">IoT Live Feed</span></h1>
     </header>
 
     <main class="dashboard">
         <section class="stats">
             <div class="card"><h3>Total Produced</h3><p id="total-count">0</p></div>
             <div class="card"><h3>Avg Weight</h3><p id="avg-weight">0g</p></div>
-            <div class="card"><h3>Last Status</h3><p id="status" style="color:green">Active</p></div>
+            <div class="card"><h3>Last Status</h3><p id="status" style="color:green">Connected</p></div>
         </section>
 
         <section class="feed">
@@ -26,6 +26,7 @@
                         <th>Time</th>
                         <th>Weight (g)</th>
                         <th>Grade</th>
+                        <th>Egg Scan</th>
                     </tr>
                 </thead>
                 <tbody id="table-body">
