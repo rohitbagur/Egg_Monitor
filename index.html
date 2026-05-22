@@ -2,37 +2,64 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Egg IoT Dashboard - Live Integration</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
-        <h1>🥚 Smart Egg Monitor <span class="badge">IoT Live Feed</span></h1>
+        <div class="header-container">
+            <h1>🥚 Smart Egg Monitor</h1>
+            <span id="connection-status" class="badge disconnected">Connecting to Hardware...</span>
+        </div>
     </header>
 
-    <main class="dashboard">
-        <section class="stats">
-            <div class="card"><h3>Total Produced</h3><p id="total-count">0</p></div>
-            <div class="card"><h3>Avg Weight</h3><p id="avg-weight">0g</p></div>
-            <div class="card"><h3>Last Status</h3><p id="status" style="color:green">Connected</p></div>
+    <main class="dashboard-layout">
+        <section class="stats-container">
+            <div class="card">
+                <h3>Total Produced</h3>
+                <p id="total-count">0</p>
+            </div>
+            <div class="card">
+                <h3>Avg Weight</h3>
+                <p id="avg-weight">0.0g</p>
+            </div>
+            <div class="card">
+                <h3>Current System Mode</h3>
+                <p id="system-mode" class="mode-text">STANDBY</p>
+            </div>
         </section>
 
-        <section class="feed">
-            <h2>Live Collection Feed</h2>
-            <table id="egg-table">
-                <thead>
-                    <tr>
-                        <th>Time</th>
-                        <th>Weight (g)</th>
-                        <th>Grade</th>
-                        <th>Egg Scan</th>
-                    </tr>
-                </thead>
-                <tbody id="table-body">
-                    </tbody>
-            </table>
-        </section>
+        <div class="content-split">
+            <section class="viewer-panel">
+                <h2>Live Visual Inspection</h2>
+                <div class="large-viewer" id="image-viewer-box">
+                    <div id="viewer-placeholder" class="placeholder-content">
+                        <div class="scanner-laser"></div>
+                        <p>📸 Please place an egg to start</p>
+                    </div>
+                    <img id="large-egg-image" src="" alt="Live Egg Scan" class="hidden-image"/>
+                    <div id="viewer-label" class="viewer-tag hidden-tag">Egg #0</div>
+                </div>
+            </section>
+
+            <section class="feed-panel">
+                <h2>Historical Collection Log</h2>
+                <div class="table-wrapper">
+                    <table id="egg-table">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Weight</th>
+                                <th>Grade Classification</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
     </main>
 
     <script src="script.js"></script>
